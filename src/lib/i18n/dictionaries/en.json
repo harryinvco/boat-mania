@@ -1,0 +1,193 @@
+{
+  "common": {
+    "bookNow": "Book Now",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "viewAll": "View All",
+    "search": "Search",
+    "filter": "Filter",
+    "price": "Price",
+    "from": "From",
+    "perPerson": "per person",
+    "perDay": "per day",
+    "perHour": "per hour",
+    "hours": "hours",
+    "guests": "guests",
+    "maxGuests": "Max guests",
+    "duration": "Duration",
+    "includes": "Includes",
+    "close": "Close",
+    "submit": "Submit",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "success": "Success!",
+    "whatsappChat": "Chat on WhatsApp",
+    "callUs": "Call Us",
+    "emailUs": "Email Us"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "marketplace": "Marketplace",
+    "gallery": "Gallery",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Experience the Best of Cyprus Waters",
+    "subtitle": "Fishing charters, boat rentals, and unforgettable marine adventures in Larnaca",
+    "cta1": "Book Your Adventure",
+    "cta2": "Explore Services"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "From fishing trips to boat maintenance, we've got you covered",
+    "fishingCharters": {
+      "title": "Fishing Charters",
+      "shortDescription": "Experience world-class fishing in the Mediterranean with our expert captains",
+      "description": "Join us for an unforgettable fishing adventure in the crystal-clear waters of Cyprus. Our experienced captains know the best spots for catching grouper, sea bream, tuna, and more."
+    },
+    "boatRentals": {
+      "title": "Boat Rentals",
+      "shortDescription": "Rent quality boats for your perfect day on the water",
+      "description": "Choose from our fleet of well-maintained boats, perfect for family outings, romantic getaways, or fishing trips. No captain needed with proper licensing."
+    },
+    "privateCruises": {
+      "title": "Private Cruises & Events",
+      "shortDescription": "Celebrate special occasions with a private cruise along the coast",
+      "description": "Create unforgettable memories with a private cruise. Perfect for birthdays, anniversaries, corporate events, or just a special day out with friends and family."
+    },
+    "maintenance": {
+      "title": "Boat Maintenance",
+      "shortDescription": "Professional cleaning and maintenance services for your vessel",
+      "description": "Keep your boat in top condition with our comprehensive maintenance services. From regular cleaning to engine servicing, we handle it all."
+    },
+    "fishingLessons": {
+      "title": "Fishing Lessons",
+      "shortDescription": "Learn fishing techniques from experienced local fishermen",
+      "description": "Whether you're a complete beginner or looking to improve your skills, our fishing lessons cover everything from basic techniques to advanced methods."
+    },
+    "spearfishing": {
+      "title": "Spearfishing Trips",
+      "shortDescription": "Guided spearfishing adventures for all skill levels",
+      "description": "Discover the thrill of spearfishing in Cyprus's pristine waters. Our guides will take you to the best spots and teach you proper techniques."
+    }
+  },
+  "marketplace": {
+    "title": "Marketplace",
+    "subtitle": "Buy and sell boats, fishing gear, and marine accessories",
+    "boats": "Boats for Sale",
+    "fishingGear": "Fishing Gear",
+    "partsAccessories": "Parts & Accessories",
+    "condition": "Condition",
+    "new": "New",
+    "likeNew": "Like New",
+    "good": "Good",
+    "fair": "Fair",
+    "partsOnly": "Parts Only",
+    "contactSeller": "Contact Seller",
+    "negotiable": "Negotiable",
+    "verified": "Verified Seller",
+    "noResults": "No listings found",
+    "filterBy": "Filter by"
+  },
+  "booking": {
+    "title": "Book Your Experience",
+    "selectService": "Select a Service",
+    "selectDate": "Choose Your Date",
+    "guestDetails": "Guest Information",
+    "payment": "Secure Payment",
+    "confirmation": "Booking Confirmed!",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "guests": "Number of Guests",
+    "specialRequests": "Special Requests",
+    "depositRequired": "Deposit Required",
+    "totalPrice": "Total Price",
+    "depositAmount": "Deposit Amount",
+    "payDeposit": "Pay Deposit",
+    "bookingReference": "Booking Reference",
+    "confirmationMessage": "Thank you for your booking! We'll contact you shortly to confirm the details.",
+    "cardNumber": "Card Number",
+    "expiryDate": "Expiry Date",
+    "cvv": "CVV",
+    "processing": "Processing payment...",
+    "paymentSuccess": "Payment successful!",
+    "step": "Step"
+  },
+  "weather": {
+    "title": "Weather Conditions",
+    "currentConditions": "Current Conditions",
+    "seaConditions": "Sea Conditions",
+    "bestTimeToBook": "Best Time to Book",
+    "temperature": "Temperature",
+    "wind": "Wind",
+    "humidity": "Humidity",
+    "waveHeight": "Wave Height",
+    "waterTemp": "Water Temperature",
+    "idealConditions": "Perfect conditions for a trip!",
+    "goodConditions": "Good conditions today",
+    "fairConditions": "Moderate conditions",
+    "poorConditions": "Not ideal - check back tomorrow"
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Real experiences from real adventurers"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Memories from the sea",
+    "catches": "Catches",
+    "trips": "Trips",
+    "boats": "Boats",
+    "spearfishing": "Spearfishing",
+    "events": "Events",
+    "all": "All"
+  },
+  "about": {
+    "title": "About Boat Mania",
+    "subtitle": "Your trusted partner for marine adventures in Cyprus",
+    "story": "Our Story",
+    "storyText": "Founded in Larnaca, Boat Mania started with a simple passion: sharing the beauty of Cyprus's waters with everyone. What began as a small fishing charter operation has grown into a full-service marine company, offering everything from boat rentals to maintenance services.",
+    "mission": "Our Mission",
+    "missionText": "To provide unforgettable marine experiences while maintaining the highest standards of safety, service, and environmental responsibility.",
+    "whyChooseUs": "Why Choose Us",
+    "reason1": "Experienced local captains",
+    "reason2": "Well-maintained fleet",
+    "reason3": "Best fishing spots",
+    "reason4": "Safety first approach",
+    "reason5": "Competitive prices",
+    "reason6": "Bilingual service"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch for bookings and inquiries",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Business Hours",
+    "hoursText": "Monday - Sunday: 6:00 AM - 8:00 PM",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "sent": "Message sent successfully!"
+    },
+    "findUs": "Find Us"
+  },
+  "footer": {
+    "description": "Your premier destination for fishing charters, boat rentals, and marine services in Larnaca, Cyprus.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contact": "Contact Info",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
