@@ -1,29 +1,29 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { i18nConfig } from '@/lib/i18n/config'
+
+const locales = ['en', 'el']
+const defaultLocale = 'en'
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
-  // Check if the pathname is missing a locale
-  const pathnameIsMissingLocale = i18nConfig.locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  // Check if the pathname already has a locale
+  const pathnameHasLocale = locales.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
 
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    // Get locale from cookie, Accept-Language header, or default
-    const locale = getLocale(request)
-    return NextResponse.redirect(
-      new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url)
-    )
-  }
+  if (pathnameHasLocale) return
+
+  // Redirect to default locale
+  const locale = getLocale(request)
+  const newUrl = new URL(`/${locale}${pathname === '/' ? '' : pathname}`, request.url)
+  return NextResponse.redirect(newUrl)
 }
 
 function getLocale(request: NextRequest): string {
   // Check cookie first
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value
-  if (cookieLocale && i18nConfig.locales.includes(cookieLocale as any)) {
+  if (cookieLocale && locales.includes(cookieLocale)) {
     return cookieLocale
   }
 
@@ -33,13 +33,13 @@ function getLocale(request: NextRequest): string {
     const preferredLocale = acceptLanguage
       .split(',')
       .map((lang) => lang.split(';')[0].trim().substring(0, 2))
-      .find((lang) => i18nConfig.locales.includes(lang as any))
+      .find((lang) => locales.includes(lang))
     if (preferredLocale) {
       return preferredLocale
     }
   }
 
-  return i18nConfig.defaultLocale
+  return defaultLocale
 }
 
 export const config = {
