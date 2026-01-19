@@ -10,7 +10,7 @@ export default function Home() {
   const [cartOpen, setCartOpen] = useState(false);
 
   return (
-    <main className="h-screen bg-white">
+    <main className="fixed inset-0 flex flex-col bg-white overflow-hidden">
       {/* Main Chat View */}
       <ChatView
         onOpenCatalog={() => setCatalogOpen(true)}

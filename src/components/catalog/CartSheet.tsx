@@ -16,13 +16,7 @@ export default function CartSheet({ isOpen, onClose }: CartSheetProps) {
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [isOpen]);
 
   const handleClose = () => {
@@ -101,7 +95,7 @@ export default function CartSheet({ isOpen, onClose }: CartSheetProps) {
         </div>
 
         {/* Items */}
-        <div className="overflow-y-auto max-h-[calc(90vh-280px)] md:max-h-[calc(100vh-340px)] p-5 md:p-6">
+        <div className="overflow-y-auto overscroll-contain max-h-[calc(90vh-280px)] md:max-h-[calc(100vh-340px)] p-5 md:p-6">
           {cart.items.length === 0 ? (
             <div className="text-center py-16">
               <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">

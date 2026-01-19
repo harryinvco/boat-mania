@@ -25,13 +25,7 @@ export default function CatalogSheet({ isOpen, onClose, onOpenCart }: CatalogShe
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [isOpen]);
 
   const handleClose = () => {
@@ -126,7 +120,7 @@ export default function CatalogSheet({ isOpen, onClose, onOpenCart }: CatalogShe
         </div>
 
         {/* Content */}
-        <div className="overflow-y-auto h-[calc(94vh-200px)] md:h-[calc(90vh-200px)] bg-gray-50">
+        <div className="overflow-y-auto overscroll-contain h-[calc(94vh-200px)] md:h-[calc(90vh-200px)] bg-gray-50">
           <div className="px-4 md:px-6 pb-32">
             {/* Promo */}
             <div className="my-4">

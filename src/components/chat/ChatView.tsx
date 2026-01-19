@@ -170,9 +170,9 @@ export default function ChatView({ onOpenCatalog }: ChatViewProps) {
   };
 
   return (
-    <div className="flex flex-col h-full bg-gray-50">
+    <div className="flex flex-col h-full bg-gray-50 overflow-hidden">
       {/* Header */}
-      <header className="glass sticky top-0 z-10 px-4 py-3 safe-top border-b border-gray-100/50">
+      <header className="flex-shrink-0 glass z-10 px-4 py-3 safe-top border-b border-gray-100/50">
         <div className="max-w-3xl mx-auto flex items-center gap-3">
           {/* Logo */}
           <div className="relative">
@@ -206,7 +206,7 @@ export default function ChatView({ onOpenCatalog }: ChatViewProps) {
       </header>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-4 py-4">
+      <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 py-4">
         <div className="max-w-3xl mx-auto">
           {messages.map((message) => (
             <ChatMessage key={message.id} message={message} />
@@ -217,7 +217,7 @@ export default function ChatView({ onOpenCatalog }: ChatViewProps) {
       </div>
 
       {/* Input */}
-      <div className="max-w-3xl mx-auto w-full">
+      <div className="flex-shrink-0 max-w-3xl mx-auto w-full">
         <ChatInput
           onSend={handleSendMessage}
           onOpenCatalog={onOpenCatalog}
