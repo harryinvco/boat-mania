@@ -1,5 +1,5 @@
 {
-  "name": "boat-mania",
+  "name": "pharmacy-chatbot",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,28 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^14.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "clsx": "^2.1.0",
-    "tailwind-merge": "^2.2.0",
-    "react-hook-form": "^7.50.0",
-    "zod": "^3.22.4",
-    "@hookform/resolvers": "^3.3.4",
-    "date-fns": "^3.3.0",
-    "framer-motion": "^11.0.0",
-    "lucide-react": "^0.330.0",
-    "swiper": "^11.0.6"
+    "@anthropic-ai/sdk": "^0.71.2",
+    "next": "^16.1.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "typescript": "^5.3.0",
-    "tailwindcss": "^3.4.0",
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.0",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.2.0"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5"
   }
 }

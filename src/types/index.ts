@@ -1,162 +1,142 @@
-// Locale types
-export type Locale = 'en' | 'el'
-
-// Service types
-export type ServiceType =
-  | 'fishing-charters'
-  | 'boat-rentals'
-  | 'private-cruises'
-  | 'maintenance'
-  | 'fishing-lessons'
-  | 'spearfishing'
-
-export interface Service {
-  id: string
-  type: ServiceType
-  slug: string
-  title: { en: string; el: string }
-  shortDescription: { en: string; el: string }
-  fullDescription: { en: string; el: string }
-  icon: string
-  heroImage: string
-  gallery: string[]
-  pricing: PricingTier[]
-  duration: string
-  maxGuests: number
-  includes: { en: string[]; el: string[] }
-  featured: boolean
+// CRM.com API Types
+export interface Product {
+  id: string;
+  sku: string;
+  name: string;
+  description?: string;
+  brand?: string;
+  category?: string;
+  price: number;
+  originalPrice?: number;
+  currency: string;
+  stock_quantity: number;
+  stock_status: 'in_stock' | 'low_stock' | 'out_of_stock';
+  requires_prescription?: boolean;
+  dosage?: string;
+  active_ingredients?: string[];
+  image?: string;
+  rating?: number;
+  reviews_count?: number;
+  tags?: string[];
 }
 
-export interface PricingTier {
-  id: string
-  name: { en: string; el: string }
-  duration: string
-  price: number
-  depositPercentage: number
-  maxGuests: number
-  includes: { en: string[]; el: string[] }
+export interface Category {
+  id: string;
+  name: string;
+  icon: string;
+  count: number;
 }
 
-// Booking types
-export type BookingStatus =
-  | 'pending'
-  | 'confirmed'
-  | 'deposit-paid'
-  | 'completed'
-  | 'cancelled'
-
-export interface Booking {
-  id: string
-  serviceType: ServiceType
-  serviceId: string
-  customer: {
-    firstName: string
-    lastName: string
-    email: string
-    phone: string
-  }
-  date: string
-  timeSlot: string
-  guestCount: number
-  basePrice: number
-  totalPrice: number
-  depositAmount: number
-  depositPaid: boolean
-  status: BookingStatus
-  specialRequests?: string
-  createdAt: string
+export interface StockInfo {
+  product_id: string;
+  sku: string;
+  name: string;
+  quantity_available: number;
+  quantity_reserved: number;
+  reorder_level: number;
+  last_updated: string;
 }
 
-// Marketplace types
-export type MarketplaceCategory = 'boats' | 'fishing-gear' | 'parts-accessories'
-export type ItemCondition = 'new' | 'like-new' | 'good' | 'fair' | 'parts-only'
-export type ListingStatus = 'active' | 'sold' | 'reserved'
-
-export interface MarketplaceItem {
-  id: string
-  category: MarketplaceCategory
-  title: string
-  description: string
-  price: number
-  negotiable: boolean
-  condition: ItemCondition
-  images: string[]
-  specifications: Record<string, string>
-  seller: {
-    name: string
-    phone: string
-    location: string
-    verified: boolean
-  }
-  status: ListingStatus
-  featured: boolean
-  createdAt: string
+export interface RewardAccount {
+  id: string;
+  contact_id: string;
+  balance: number;
+  tier: {
+    id: string;
+    name: string;
+    color: string;
+  };
+  lifetime_value: number;
 }
 
-// Testimonial types
-export interface Testimonial {
-  id: string
-  customerName: string
-  customerLocation?: string
-  customerImage?: string
-  rating: 1 | 2 | 3 | 4 | 5
-  content: { en: string; el: string }
-  serviceType: ServiceType
-  verified: boolean
-  featured: boolean
+export interface CRMApiResponse<T> {
+  content: T[];
+  paging?: {
+    page: number;
+    size: number;
+    total: number;
+  };
 }
 
-// Gallery types
-export type GalleryCategory =
-  | 'catches'
-  | 'trips'
-  | 'boats'
-  | 'spearfishing'
-  | 'events'
-
-export interface GalleryItem {
-  id: string
-  type: 'image' | 'video'
-  url: string
-  thumbnailUrl: string
-  title?: string
-  category: GalleryCategory
-  featured: boolean
+// Cart Types
+export interface CartItem {
+  product: Product;
+  quantity: number;
 }
 
-// Weather types
-export interface WeatherData {
-  current: {
-    temperature: number
-    humidity: number
-    windSpeed: number
-    windDirection: string
-    conditions: string
-    icon: string
-  }
-  marine: {
-    waveHeight: number
-    waterTemperature: number
-  }
-  forecast: DayForecast[]
-  recommendation: {
-    isGood: boolean
-    reason: { en: string; el: string }
-  }
+export interface Cart {
+  items: CartItem[];
+  total: number;
+  itemCount: number;
 }
 
-export interface DayForecast {
-  date: string
-  tempMax: number
-  tempMin: number
-  conditions: string
-  icon: string
-  precipitationChance: number
+// Chat Types
+export interface ChatMessage {
+  id: string;
+  role: 'user' | 'assistant' | 'system';
+  content: string;
+  timestamp: Date;
+  metadata?: {
+    products?: Product[];
+    stockInfo?: StockInfo[];
+    actions?: CartAction[];
+  };
 }
 
-// Navigation types
-export interface NavItem {
-  label: { en: string; el: string }
-  href: string
-  children?: NavItem[]
+export interface ChatRequest {
+  message: string;
+  conversationHistory?: ChatMessage[];
+}
+
+export interface ChatResponse {
+  message: string;
+  products?: Product[];
+  stockInfo?: StockInfo[];
+}
+
+// Cart Action Types for OpenAI Function Calling
+export type CartActionType =
+  | 'ADD_TO_CART'
+  | 'REMOVE_FROM_CART'
+  | 'UPDATE_QUANTITY'
+  | 'CLEAR_CART'
+  | 'SHOW_CART';
+
+export interface CartAction {
+  type: CartActionType;
+  productId?: string;
+  productName?: string;
+  quantity?: number;
+}
+
+// Cart summary sent to API for context
+export interface CartSummary {
+  items: {
+    productId: string;
+    productName: string;
+    quantity: number;
+    price: number;
+  }[];
+  total: number;
+  itemCount: number;
+}
+
+// Simplified message for conversation history
+export interface ConversationMessage {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
+// Enhanced request with history and cart context
+export interface EnhancedChatRequest {
+  message: string;
+  conversationHistory?: ConversationMessage[];
+  cartContext?: CartSummary;
+}
+
+// Enhanced response with actions
+export interface EnhancedChatResponse {
+  message: string;
+  products?: Product[];
+  actions?: CartAction[];
 }

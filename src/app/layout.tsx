@@ -1,22 +1,39 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type { Metadata, Viewport } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { CartProvider } from '@/context/CartContext';
 
-const inter = Inter({
-  subsets: ['latin', 'greek'],
-  variable: '--font-inter',
-})
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Boat Mania | Fishing Charters & Boat Rentals in Larnaca, Cyprus',
-  description: 'Experience the best fishing charters, boat rentals, and marine adventures in Larnaca, Cyprus. Book your unforgettable trip today!',
-  keywords: ['fishing charters', 'boat rentals', 'Larnaca', 'Cyprus', 'spearfishing', 'boat maintenance', 'private cruises'],
-}
+  title: 'PharmaCare+ | Your Pharmacy Assistant',
+  description: 'Shop medicines, vitamins, and healthcare products with AI-powered assistance',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'PharmaCare+',
+  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: '#00b37e',
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  return children
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <CartProvider>{children}</CartProvider>
+      </body>
+    </html>
+  );
 }
